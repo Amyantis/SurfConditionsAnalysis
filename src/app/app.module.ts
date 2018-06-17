@@ -1,16 +1,24 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
+import {WavesComponent} from './waves/waves.component';
+
+import {HttpClientModule} from '@angular/common/http';
+import {ApiService} from './api.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WavesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
+
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
