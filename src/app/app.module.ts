@@ -6,6 +6,7 @@ import {WavesComponent} from './waves/waves.component';
 
 import {HttpClientModule} from '@angular/common/http';
 import {ApiService} from './api.service';
+import {PlotlyModule} from 'angular-plotly.js';
 
 @NgModule({
   declarations: [
@@ -14,8 +15,8 @@ import {ApiService} from './api.service';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
-
+    HttpClientModule,
+    PlotlyModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

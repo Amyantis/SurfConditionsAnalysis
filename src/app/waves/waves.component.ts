@@ -1,6 +1,6 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ApiService} from '../api.service';
-
+import {Plotly as PlotlyService} from 'angular-plotly.js/src/app/plotly/plotly.service';
 
 @Component({
   selector: 'app-waves',
@@ -8,17 +8,28 @@ import {ApiService} from '../api.service';
   styleUrls: ['./waves.component.css'],
 })
 export class WavesComponent implements OnInit {
-  @ViewChild('chart') el: ElementRef;
-  public data: string;
+  public graph: PlotlyService.Config = {
+    data: [],
+    layout: {title: 'Height of the waves'}
+  };
 
   constructor(private _apiService: ApiService) {
-    this.data = 'to';
   }
 
   public ngOnInit() {
-    this._apiService.waves().subscribe(res => {
-      console.log(res);
-      //
+    this._apiService.waves().subscribe(rows => {
+      this.graph.data.push({
+        name: 'min (m)',
+        type: 'scatter',
+        x: rows.map(r => new Date(r.timestamp)),
+        y: rows.map(r => r.surf_min),
+      });
+      this.graph.data.push({
+        name: 'max (m)',
+        type: 'scatter',
+        x: rows.map(r => new Date(r.timestamp)),
+        y: rows.map(r => r.surf_max),
+      });
     });
   }
 }

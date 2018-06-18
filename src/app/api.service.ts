@@ -10,6 +10,6 @@ export class ApiService {
   }
 
   public waves() {
-    return this._http.get('http://localhost:5000/waves.csv', {responseType: 'text'});
+    return this._http.get('http://localhost:5000/waves.json', {responseType: 'json'});
   }
 }
