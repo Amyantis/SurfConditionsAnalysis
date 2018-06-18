@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from '../api.service';
-import {Plotly as PlotlyService} from 'angular-plotly.js/src/app/plotly/plotly.service';
+import {Plotly} from 'angular-plotly.js/src/app/plotly/plotly.service';
 
 @Component({
   selector: 'app-waves',
@@ -8,7 +8,7 @@ import {Plotly as PlotlyService} from 'angular-plotly.js/src/app/plotly/plotly.s
   styleUrls: ['./waves.component.css'],
 })
 export class WavesComponent implements OnInit {
-  public graph: PlotlyService.Config = {
+  public graph: Plotly.Config = {
     data: [],
     layout: {title: 'Height of the waves'}
   };

@@ -7,11 +7,13 @@ import {WavesComponent} from './waves/waves.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ApiService} from './api.service';
 import {PlotlyModule} from 'angular-plotly.js';
+import {TidesComponent} from './tides/tides.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WavesComponent
+    WavesComponent,
+    TidesComponent
   ],
   imports: [
     BrowserModule,
