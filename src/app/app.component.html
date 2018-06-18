@@ -1,2 +1,15 @@
-<app-waves></app-waves>
-<app-tides></app-tides>
+<mat-toolbar>
+  <span>SurfConditionsAnalysis</span>
+  <span class="toolbar-spacer"></span>
+  <mat-icon class="toolbar-icon">verified_user</mat-icon>
+</mat-toolbar>
+
+<mat-grid-list cols="2" gutterSize="20">
+  <mat-grid-tile>
+    <app-waves></app-waves>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <app-tides></app-tides>
+  </mat-grid-tile>
+</mat-grid-list>
+

@@ -8,6 +8,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {ApiService} from './api.service';
 import {PlotlyModule} from 'angular-plotly.js';
 import {TidesComponent} from './tides/tides.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatGridListModule, MatIconModule, MatToolbarModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -17,11 +19,15 @@ import {TidesComponent} from './tides/tides.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
-    PlotlyModule
+    PlotlyModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatGridListModule,
   ],
   providers: [ApiService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {
 }
