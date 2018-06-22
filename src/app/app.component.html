@@ -4,12 +4,14 @@
   <mat-icon class="toolbar-icon">verified_user</mat-icon>
 </mat-toolbar>
 
-<mat-grid-list cols="2" gutterSize="20">
-  <mat-grid-tile>
+<mat-tab-group>
+  <mat-tab label="Table">
+    <app-waves-table></app-waves-table>
+  </mat-tab>
+  <mat-tab label="Waves">
     <app-waves></app-waves>
-  </mat-grid-tile>
-  <mat-grid-tile>
+  </mat-tab>
+  <mat-tab label="Tides">
     <app-tides></app-tides>
-  </mat-grid-tile>
-</mat-grid-list>
-
+  </mat-tab>
+</mat-tab-group>
