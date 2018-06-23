@@ -3,11 +3,11 @@ import {ApiService} from '../api.service';
 import {Plotly} from 'angular-plotly.js/src/app/plotly/plotly.service';
 
 @Component({
-  selector: 'app-waves',
-  templateUrl: './waves.component.html',
-  styleUrls: ['./waves.component.css'],
+  selector: 'app-waves-height-plot',
+  templateUrl: './waves-height-plot.component.html',
+  styleUrls: ['./waves-height-plot.component.css'],
 })
-export class WavesComponent implements OnInit {
+export class WavesHeightPlotComponent implements OnInit {
   public graph: Plotly.Config = {
     data: [],
     layout: {title: 'Height of the waves'}
@@ -36,12 +36,6 @@ export class WavesComponent implements OnInit {
         type: 'scatter',
         x: rows.map(r => new Date(r.timestamp)),
         y: rows.map(r => r.wave_height_0),
-      });
-      this.graph.data.push({
-        name: 'period (s)',
-        type: 'scatter',
-        x: rows.map(r => new Date(r.timestamp)),
-        y: rows.map(r => r.wave_period_0),
       });
     });
   }

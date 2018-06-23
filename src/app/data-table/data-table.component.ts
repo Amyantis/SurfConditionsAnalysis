@@ -4,10 +4,10 @@ import {MatPaginator, MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'app-waves-table',
-  templateUrl: './waves-table.component.html',
-  styleUrls: ['./waves-table.component.css']
+  templateUrl: './data-table.component.html',
+  styleUrls: ['./data-table.component.css']
 })
-export class WavesTableComponent implements OnInit {
+export class DataTableComponent implements OnInit {
   displayedColumns = [
     'timestamp',
     'wave_surf_min',

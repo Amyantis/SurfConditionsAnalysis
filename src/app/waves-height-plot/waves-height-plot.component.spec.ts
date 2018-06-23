@@ -1,20 +1,20 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {WavesComponent} from './waves.component';
+import {WavesHeightPlotComponent} from './waves-height-plot.component';
 
-describe('WavesComponent', () => {
-  let component: WavesComponent;
-  let fixture: ComponentFixture<WavesComponent>;
+describe('WavesHeightPlotComponent', () => {
+  let component: WavesHeightPlotComponent;
+  let fixture: ComponentFixture<WavesHeightPlotComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [WavesComponent]
+      declarations: [WavesHeightPlotComponent]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WavesComponent);
+    fixture = TestBed.createComponent(WavesHeightPlotComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
