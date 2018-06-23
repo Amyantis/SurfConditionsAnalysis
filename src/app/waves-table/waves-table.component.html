@@ -26,6 +26,11 @@
     <td mat-cell *matCellDef="let element"> {{element.wave_wave_height_0}}</td>
   </ng-container>
 
+  <ng-container matColumnDef="wave_wave_period_0">
+    <th mat-header-cell *matHeaderCellDef> Wave period (s)</th>
+    <td mat-cell *matCellDef="let element"> {{element.wave_wave_period_0}}</td>
+  </ng-container>
+
   <ng-container matColumnDef="tides_height">
     <th mat-header-cell *matHeaderCellDef> Tides Height (m)</th>
     <td mat-cell *matCellDef="let element"> {{element.tides_height}}</td>

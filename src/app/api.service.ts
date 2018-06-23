@@ -7,6 +7,31 @@ export interface Wave {
   timestamp: number;
   surf_min: number;
   surf_max: number;
+  surf_optimalScore: number;
+  wave_direction_0: number;
+  wave_direction_1: number;
+  wave_direction_2: number;
+  wave_direction_3: number;
+  wave_direction_4: number;
+  wave_direction_5: number;
+  wave_height_0: number;
+  wave_height_1: number;
+  wave_height_2: number;
+  wave_height_3: number;
+  wave_height_4: number;
+  wave_height_5: number;
+  wave_optimalScore_0: number;
+  wave_optimalScore_1: number;
+  wave_optimalScore_2: number;
+  wave_optimalScore_3: number;
+  wave_optimalScore_4: number;
+  wave_optimalScore_5: number;
+  wave_period_0: number;
+  wave_period_1: number;
+  wave_period_2: number;
+  wave_period_3: number;
+  wave_period_4: number;
+  wave_period_5: number;
 }
 
 export interface Tide {

@@ -14,6 +14,7 @@ export class WavesTableComponent implements OnInit {
     'wave_surf_max',
     'wave_wave_direction_0',
     'wave_wave_height_0',
+    'wave_wave_period_0',
     'tides_height',
     'wind_direction',
     'wind_speed',

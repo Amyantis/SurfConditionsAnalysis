@@ -18,17 +18,30 @@ export class WavesComponent implements OnInit {
 
   public ngOnInit() {
     this._apiService.waves().subscribe(rows => {
+      console.log(rows);
       this.graph.data.push({
-        name: 'min (m)',
+        name: 'height min (m)',
         type: 'scatter',
         x: rows.map(r => new Date(r.timestamp)),
         y: rows.map(r => r.surf_min),
       });
       this.graph.data.push({
-        name: 'max (m)',
+        name: 'height max (m)',
         type: 'scatter',
         x: rows.map(r => new Date(r.timestamp)),
         y: rows.map(r => r.surf_max),
+      });
+      this.graph.data.push({
+        name: 'height (m)',
+        type: 'scatter',
+        x: rows.map(r => new Date(r.timestamp)),
+        y: rows.map(r => r.wave_height_0),
+      });
+      this.graph.data.push({
+        name: 'period (s)',
+        type: 'scatter',
+        x: rows.map(r => new Date(r.timestamp)),
+        y: rows.map(r => r.wave_period_0),
       });
     });
   }
