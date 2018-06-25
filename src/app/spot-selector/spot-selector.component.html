@@ -1,0 +1,11 @@
+<mat-form-field>
+  <!--placeholder="Surf Spot"-->
+  <mat-select [formControl]="spotControl" [(value)]="selectedSpot" [(ngModel)]="selectedSpot">
+    <mat-optgroup *ngFor="let group of spotGroups" [label]="group.name"
+                  [disabled]="group.disabled">
+      <mat-option *ngFor="let spot of group.spots" [value]="spot.value">
+        {{ spot.viewValue }}
+      </mat-option>
+    </mat-optgroup>
+  </mat-select>
+</mat-form-field>

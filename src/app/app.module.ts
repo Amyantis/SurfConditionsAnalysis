@@ -9,9 +9,19 @@ import {ApiService} from './api.service';
 import {PlotlyModule} from 'angular-plotly.js';
 import {TidesComponent} from './tides/tides.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatIconModule, MatPaginatorModule, MatTableModule, MatTabsModule, MatToolbarModule} from '@angular/material';
+import {
+  MatFormFieldModule,
+  MatIconModule,
+  MatOptionModule,
+  MatPaginatorModule, MatSelectModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule
+} from '@angular/material';
 import {DataTableComponent} from './data-table/data-table.component';
-import { WavesPeriodPlotComponent } from './waves-period-plot/waves-period-plot.component';
+import {WavesPeriodPlotComponent} from './waves-period-plot/waves-period-plot.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import { SpotSelectorComponent } from './spot-selector/spot-selector.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +29,8 @@ import { WavesPeriodPlotComponent } from './waves-period-plot/waves-period-plot.
     WavesHeightPlotComponent,
     TidesComponent,
     DataTableComponent,
-    WavesPeriodPlotComponent
+    WavesPeriodPlotComponent,
+    SpotSelectorComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +42,10 @@ import { WavesPeriodPlotComponent } from './waves-period-plot/waves-period-plot.
     MatTableModule,
     MatPaginatorModule,
     MatTabsModule,
+    MatFormFieldModule,
+    MatOptionModule,
+    MatSelectModule,
+    ReactiveFormsModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent],

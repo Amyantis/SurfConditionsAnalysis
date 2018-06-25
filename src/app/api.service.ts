@@ -78,6 +78,12 @@ export interface Global {
   tides_type: string;
 }
 
+export interface Spot {
+  spot_id: number;
+  name: string;
+  latitude: number;
+  longitude: number
+}
 
 
 @Injectable({
@@ -101,5 +107,10 @@ export class ApiService {
   public global() {
     return this._http.get<Array<Global>>(
       BASE_API_URL + '/global.json', {responseType: 'json'});
+  }
+
+  public spots() {
+    return this._http.get<Array<Spot>>(
+      BASE_API_URL + '/spots.json', {responseType: 'json'});
   }
 }
