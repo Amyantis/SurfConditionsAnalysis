@@ -12,9 +12,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
   MatAutocompleteModule,
   MatFormFieldModule,
-  MatIconModule, MatInputModule, MatListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
   MatOptionModule,
-  MatPaginatorModule, MatSelectModule,
+  MatPaginatorModule,
+  MatSelectModule,
   MatTableModule,
   MatTabsModule,
   MatToolbarModule
@@ -22,7 +25,7 @@ import {
 import {DataTableComponent} from './data-table/data-table.component';
 import {WavesPeriodPlotComponent} from './waves-period-plot/waves-period-plot.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import { SpotSelectorComponent } from './spot-selector/spot-selector.component';
+import {SpotSelectorComponent} from './spot-selector/spot-selector.component';
 
 @NgModule({
   declarations: [

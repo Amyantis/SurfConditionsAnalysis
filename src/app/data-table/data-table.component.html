@@ -2,7 +2,7 @@
   <ng-container matColumnDef="timestamp">
     <th mat-header-cell *matHeaderCellDef> Date/heure</th>
     <td mat-cell *matCellDef="let element">
-      {{element.timestamp | date :  "M/d/yy h:mm"}}
+      {{element.timestamp | date : "M/d/yy h:mm"}}
     </td>
   </ng-container>
 
@@ -18,7 +18,8 @@
 
   <ng-container matColumnDef="wave_wave_direction_0">
     <th mat-header-cell *matHeaderCellDef> Wave direction (°)</th>
-    <td mat-cell *matCellDef="let element"> {{element.wave_wave_direction_0}}</td>
+    <td mat-cell *matCellDef="let element"> {{element.wave_wave_direction_0}}
+    </td>
   </ng-container>
 
   <ng-container matColumnDef="wave_wave_height_0">

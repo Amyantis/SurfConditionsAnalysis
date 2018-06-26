@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ApiService, Spot} from '../api.service';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
@@ -16,7 +16,10 @@ interface CountrySpots {
   styleUrls: ['./spot-selector.component.css'],
 })
 export class SpotSelectorComponent implements OnInit {
+  @Output() spotSelection = new EventEmitter<Spot>();
+
   public myControl: FormControl = new FormControl();
+  public spotsNamesMap: Map<string, Spot> = new Map<string, Spot>();
   public countrySpots: CountrySpots[] = [];
   public filteredOptions: Observable<CountrySpots[]>;
 
@@ -31,13 +34,14 @@ export class SpotSelectorComponent implements OnInit {
       console.log(rows);
       const spotsMap = new Map<string, Spot[]>();
       for (const row of rows) {
+        this.spotsNamesMap.set(row.name.toLocaleLowerCase(), row);
         if (!spotsMap.has(row.country)) {
           spotsMap.set(row.country, []);
         }
         spotsMap.get(row.country).push(row);
       }
       this.countrySpots = [];
-      for (const [country, countrySpots] of spotsMap.entries()) {
+      for (const [country, countrySpots] of [...spotsMap.entries()].sort()) {
         const sortedCountrySpots = countrySpots.sort((a, b) => {
           const nameA = a.name.toLowerCase();
           const nameB = b.name.toLowerCase();
@@ -72,5 +76,13 @@ export class SpotSelectorComponent implements OnInit {
       }
     }
     return filteredCountrySpots;
+  }
+
+  public done(event) {
+    const spotName = event.target.value;
+    if (this.spotsNamesMap.has(spotName.toLocaleLowerCase())) {
+      const selectedSpot = this.spotsNamesMap.get(spotName.toLocaleLowerCase());
+      this.spotSelection.emit(selectedSpot);
+    }
   }
 }

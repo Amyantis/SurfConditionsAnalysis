@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { WavesPeriodPlotComponent } from './waves-period-plot.component';
+import {WavesPeriodPlotComponent} from './waves-period-plot.component';
 
 describe('WavesPeriodPlotComponent', () => {
   let component: WavesPeriodPlotComponent;
@@ -8,9 +8,9 @@ describe('WavesPeriodPlotComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WavesPeriodPlotComponent ]
+      declarations: [WavesPeriodPlotComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

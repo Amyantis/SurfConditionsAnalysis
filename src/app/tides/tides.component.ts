@@ -1,13 +1,15 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChange} from '@angular/core';
 import {Plotly} from 'angular-plotly.js/src/app/plotly/plotly.service';
-import {ApiService} from '../api.service';
+import {ApiService, Spot} from '../api.service';
 
 @Component({
   selector: 'app-tides',
   templateUrl: './tides.component.html',
   styleUrls: ['./tides.component.css']
 })
-export class TidesComponent implements OnInit {
+export class TidesComponent implements OnInit, OnChanges {
+  @Input() selectedSpot: Spot;
+
   public graph: Plotly.Config = {
     data: [],
     layout: {title: 'Height of the tides'}
@@ -17,8 +19,12 @@ export class TidesComponent implements OnInit {
   }
 
   public ngOnInit() {
-    this._apiService.tides().subscribe(rows => {
-      console.log(rows);
+  }
+
+  ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
+    const spotId = changes.selectedSpot.currentValue.api_id;
+    this._apiService.tides(spotId).subscribe(rows => {
+      this.graph.data = [];
       this.graph.data.push({
         name: 'height (m)',
         type: 'scatter',
@@ -29,5 +35,6 @@ export class TidesComponent implements OnInit {
       });
     });
   }
+
 
 }

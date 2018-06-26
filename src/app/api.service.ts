@@ -79,7 +79,7 @@ export interface Global {
 }
 
 export interface Spot {
-  spot_id: number;
+  spot_id: string;
   name: string;
   latitude: number;
   longitude: number;
@@ -97,19 +97,29 @@ export class ApiService {
   constructor(private _http: HttpClient) {
   }
 
-  public waves() {
-    return this._http.get<Array<Wave>>(
-      BASE_API_URL + '/waves.json', {responseType: 'json'});
+  public waves(spotId: number = null) {
+    let url = BASE_API_URL + '/waves.json';
+    if (spotId != null) {
+      url += '?spot_id=' + spotId;
+    }
+    return this._http.get<Array<Wave>>(url, {responseType: 'json'});
   }
 
-  public tides() {
-    return this._http.get<Array<Tide>>(
-      BASE_API_URL + '/tides.json', {responseType: 'json'});
+  public tides(spotId: number = null) {
+    let url = BASE_API_URL + '/tides.json';
+    if (spotId != null) {
+      url += '?spot_id=' + spotId;
+    }
+    return this._http.get<Array<Tide>>(url, {responseType: 'json'});
   }
 
-  public global() {
-    return this._http.get<Array<Global>>(
-      BASE_API_URL + '/global.json', {responseType: 'json'});
+  public global(spotId: number = null) {
+    let url = BASE_API_URL + '/global.json';
+    if (spotId != null) {
+      url += '?spot_id=' + spotId;
+    }
+    console.log('Getting', url);
+    return this._http.get<Array<Global>>(url, {responseType: 'json'});
   }
 
   public spots() {

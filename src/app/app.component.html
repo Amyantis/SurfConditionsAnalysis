@@ -4,21 +4,24 @@
   <mat-icon class="toolbar-icon">waves</mat-icon>
 </mat-toolbar>
 
-<app-spot-selector></app-spot-selector>
+<app-spot-selector
+  (spotSelection)="onSpotSelection($event)"></app-spot-selector>
 
 <mat-tab-group>
   <mat-tab label="Data">
-    <app-waves-table></app-waves-table>
+    <app-waves-table [selectedSpot]="selectedSpot"></app-waves-table>
   </mat-tab>
   <mat-tab label="Waves">
     <ng-template matTabContent>
-      <app-waves-height-plot></app-waves-height-plot>
-      <app-waves-period-plot></app-waves-period-plot>
+      <app-waves-height-plot
+        [selectedSpot]="selectedSpot"></app-waves-height-plot>
+      <app-waves-period-plot
+        [selectedSpot]="selectedSpot"></app-waves-period-plot>
     </ng-template>
   </mat-tab>
   <mat-tab label="Tides">
     <ng-template matTabContent>
-      <app-tides></app-tides>
+      <app-tides [selectedSpot]="selectedSpot"></app-tides>
     </ng-template>
   </mat-tab>
   <mat-tab label="Wind">

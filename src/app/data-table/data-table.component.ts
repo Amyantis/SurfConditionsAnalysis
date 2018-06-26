@@ -1,5 +1,5 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {ApiService, Global} from '../api.service';
+import {Component, Input, OnChanges, OnInit, SimpleChange, ViewChild} from '@angular/core';
+import {ApiService, Global, Spot} from '../api.service';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
 
 @Component({
@@ -7,7 +7,9 @@ import {MatPaginator, MatTableDataSource} from '@angular/material';
   templateUrl: './data-table.component.html',
   styleUrls: ['./data-table.component.css']
 })
-export class DataTableComponent implements OnInit {
+export class DataTableComponent implements OnInit, OnChanges {
+  @Input() selectedSpot: Spot;
+
   displayedColumns = [
     'timestamp',
     'wave_surf_min',
@@ -30,8 +32,11 @@ export class DataTableComponent implements OnInit {
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
+  }
 
-    this._apiService.global().subscribe(rows => {
+  ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
+    console.log(changes);
+    this._apiService.global(changes.selectedSpot.currentValue.api_id).subscribe(rows => {
       this.dataSource.data = rows;
     });
   }

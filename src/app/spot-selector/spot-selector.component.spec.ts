@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SpotSelectorComponent } from './spot-selector.component';
+import {SpotSelectorComponent} from './spot-selector.component';
 
 describe('SpotSelectorComponent', () => {
   let component: SpotSelectorComponent;
@@ -8,9 +8,9 @@ describe('SpotSelectorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SpotSelectorComponent ]
+      declarations: [SpotSelectorComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

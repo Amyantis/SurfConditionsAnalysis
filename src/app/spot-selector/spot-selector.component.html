@@ -1,6 +1,8 @@
 <mat-form-field class="example-full-width">
-  <input type="text" placeholder="Pick one" aria-label="Number" matInput
-         [formControl]="myControl" [matAutocomplete]="auto">
+  <input #spot type="text" placeholder="Pick a spot and hit Enter"
+         aria-label="Number" matInput
+         [formControl]="myControl" [matAutocomplete]="auto"
+         (keyup.enter)="done($event)">
 
   <mat-autocomplete #auto="matAutocomplete">
 
@@ -8,7 +10,7 @@
                   [label]="countrySpots.countryName">
 
       <mat-option *ngFor="let spot of countrySpots.spots"
-                  [value]="spot.spot_id">
+                  [value]="spot.name">
         {{ spot.name }}
       </mat-option>
 
