@@ -10,8 +10,9 @@ import {PlotlyModule} from 'angular-plotly.js';
 import {TidesComponent} from './tides/tides.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
+  MatAutocompleteModule,
   MatFormFieldModule,
-  MatIconModule,
+  MatIconModule, MatInputModule, MatListModule,
   MatOptionModule,
   MatPaginatorModule, MatSelectModule,
   MatTableModule,
@@ -45,7 +46,10 @@ import { SpotSelectorComponent } from './spot-selector/spot-selector.component';
     MatFormFieldModule,
     MatOptionModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatListModule,
+    MatAutocompleteModule,
+    MatInputModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent],

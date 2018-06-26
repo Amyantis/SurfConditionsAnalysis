@@ -82,7 +82,10 @@ export interface Spot {
   spot_id: number;
   name: string;
   latitude: number;
-  longitude: number
+  longitude: number;
+  city: string;
+  state: string;
+  country: string;
 }
 
 
