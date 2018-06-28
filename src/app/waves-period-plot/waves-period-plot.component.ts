@@ -22,6 +22,9 @@ export class WavesPeriodPlotComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
+    if (changes.selectedSpot.firstChange) {
+      return;
+    }
     console.log(changes);
     const spotId = changes.selectedSpot.currentValue.api_id;
     this._apiService.waves(spotId).subscribe(rows => {

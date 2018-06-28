@@ -5,7 +5,7 @@ import {MatPaginator, MatTableDataSource} from '@angular/material';
 @Component({
   selector: 'app-waves-table',
   templateUrl: './data-table.component.html',
-  styleUrls: ['./data-table.component.css']
+  styleUrls: ['./data-table.component.css'],
 })
 export class DataTableComponent implements OnInit, OnChanges {
   @Input() selectedSpot: Spot;
@@ -35,8 +35,12 @@ export class DataTableComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
+    if (changes.selectedSpot.firstChange) {
+      return;
+    }
     console.log(changes);
     this._apiService.global(changes.selectedSpot.currentValue.api_id).subscribe(rows => {
+      console.log(rows);
       this.dataSource.data = rows;
     });
   }

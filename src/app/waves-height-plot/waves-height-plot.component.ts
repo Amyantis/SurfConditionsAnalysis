@@ -23,6 +23,9 @@ export class WavesHeightPlotComponent implements OnInit, OnChanges {
 
 
   ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
+    if (changes.selectedSpot.firstChange) {
+      return;
+    }
     const spotId = changes.selectedSpot.currentValue.api_id;
     this._apiService.waves(spotId).subscribe(rows => {
       this.graph.data = [];

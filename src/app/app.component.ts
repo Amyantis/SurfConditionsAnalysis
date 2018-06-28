@@ -7,7 +7,7 @@ import {Spot} from './api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  selectedSpot: Spot;
+  selectedSpot: Spot = null;
 
   onSpotSelection(spot: Spot) {
     console.log('Spot selection (AppComponent)', spot);

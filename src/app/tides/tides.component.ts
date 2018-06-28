@@ -22,6 +22,9 @@ export class TidesComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
+    if (changes.selectedSpot.firstChange) {
+      return;
+    }
     const spotId = changes.selectedSpot.currentValue.api_id;
     this._apiService.tides(spotId).subscribe(rows => {
       this.graph.data = [];

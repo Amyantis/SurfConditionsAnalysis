@@ -1,11 +1,10 @@
-<mat-toolbar>
+<mat-toolbar class="md-tall">
   <span>SurfConditionsAnalysis</span>
   <span class="toolbar-spacer"></span>
+  <app-spot-selector (spotSelection)="onSpotSelection($event)">
+  </app-spot-selector>
   <mat-icon class="toolbar-icon">waves</mat-icon>
 </mat-toolbar>
-
-<app-spot-selector
-  (spotSelection)="onSpotSelection($event)"></app-spot-selector>
 
 <mat-tab-group>
   <mat-tab label="Data">

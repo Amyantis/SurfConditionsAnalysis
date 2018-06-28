@@ -2,7 +2,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ApiService, Spot} from '../api.service';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import {debounceTime, map, startWith} from 'rxjs/operators';
 
 interface CountrySpots {
   countryName: string;
@@ -28,7 +28,7 @@ export class SpotSelectorComponent implements OnInit {
 
   public ngOnInit() {
     this.filteredOptions = this.myControl.valueChanges
-      .pipe(startWith(''), map(val => this.filter(val)));
+      .pipe(debounceTime(400), map(val => this.filter(val)));
 
     this._apiService.spots().subscribe(rows => {
       console.log(rows);
@@ -59,6 +59,9 @@ export class SpotSelectorComponent implements OnInit {
 
 
   public filter(val: string): CountrySpots[] {
+    if (val.length < 3) {
+      return this.countrySpots;
+    }
     const filteredCountrySpots: CountrySpots[] = [];
 
     for (const countrySpots of this.countrySpots) {

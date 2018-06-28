@@ -89,6 +89,13 @@ export interface Spot {
 }
 
 
+export interface Wind {
+  timestamp: number;
+  direction: number;
+  optimalScore: number;
+  speed: number;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -120,6 +127,15 @@ export class ApiService {
     }
     console.log('Getting', url);
     return this._http.get<Array<Global>>(url, {responseType: 'json'});
+  }
+
+  public wind(spotId: number = null) {
+    let url = BASE_API_URL + '/wind.json';
+    if (spotId != null) {
+      url += '?spot_id=' + spotId;
+    }
+    console.log('Getting', url);
+    return this._http.get<Array<Wind>>(url, {responseType: 'json'});
   }
 
   public spots() {
